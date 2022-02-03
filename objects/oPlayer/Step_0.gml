@@ -1,3 +1,4 @@
+///@description movement
 //code that runs every frame
 right = keyboard_check(vk_right);
 left = keyboard_check(vk_left);
