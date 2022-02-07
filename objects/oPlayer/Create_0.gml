@@ -21,3 +21,9 @@ jumpforce = -10;
 ///coins and points
 
 global.coins = 0;
+
+//invicibility
+isInvincible = false;
+
+//health points
+hp = 6;
