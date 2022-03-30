@@ -1,4 +1,4 @@
-/// @description basic enemy collision
+/// @description enemy patrol collision
 // You can write your code in this editor
 
 //check to see if there is a collision between oPlayer 7 the top of oEnemy

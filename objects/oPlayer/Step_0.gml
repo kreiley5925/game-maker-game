@@ -1,5 +1,20 @@
 ///@description movement
 //code that runs every frame
+
+if isInvincible
+{
+	invTimer -= 1/room_speed
+	if invTimer <=0
+	{
+		isInvincible = false;
+		invTimer = 2;
+	}
+}
+
+
+
+
+//keyboard check and inputs
 right = keyboard_check(vk_right);
 left = keyboard_check(vk_left);
 jump = keyboard_check_pressed(vk_space)
@@ -22,7 +37,7 @@ if (place_meeting(x + xVector, y, oWall))
             x = x + xDirection;
 		   }
            xVector = 0;
-}
+ }
 //otherwise move normal
 x = x + xVector;
 
@@ -33,8 +48,6 @@ if (place_meeting(x, y + yVector, oWall))
  {
       //check one pixel to the left or right of us until we collide with oWall
       // ! meants "not"
-	  //'sign' is going to return the positive or negative sign for a value (-1, +1)
-	  //sign(yVector is positive it will return a positive 1, and if our yVector is negative,it will return a -1
       while(!place_meeting(x, y + sign(yVector), oWall))
            { 
 		   //only move 1 pixel at a time until you hit oWall
@@ -42,6 +55,18 @@ if (place_meeting(x, y + yVector, oWall))
 		   }
            yVector = 0;
 }
+if (place_meeting(x, y + yVector, oTurret))
+ {
+      //check one pixel to the left or right of us until we collide with oWall
+      // ! meants "not"
+      while(!place_meeting(x, y + sign(yVector), oTurret))
+           { 
+		   //move the one pixel
+            y = y + sign(yVector);
+		   }
+           yVector = 0;
+}
+
 //otherwise move normal
 y = y + yVector;
 
@@ -57,7 +82,3 @@ if (y >= room_height)
     {
 		PlayerDeath();
 	}
-
-
-
-
